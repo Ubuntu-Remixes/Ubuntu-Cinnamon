@@ -1,12 +1,12 @@
 #!/bin/sh
 
-add-apt-repository -y universe
-add-apt-repository -y multiverse
+add-apt-repository -y --no-update universe
+add-apt-repository -y --no-update multiverse
 
-apt-get install -y casper expect gparted calamares-settings-cinnamon-remix \
+add-apt-repository -y ppa:ubuntucinnamonremix/unstable
+
+apt-get install -y casper expect gparted ubuntucinnamon-desktop \
  cifs-utils lupin-casper language-pack-en language-pack-gnome-en \
  xfsprogs jfsutils reiserfsprogs shim-signed shim ntfs-3g lvm2 \
  dmraid wamerican fwupdate mokutil \
- qml-module-qtquick-dialogs qml-module-qtquick-controls \
- qml-module-qtquick-layouts qml-module-qtquick-window2 \
  zram-config ubiquity ubiquity-slideshow-ubuntu ubiquity-frontend-gtk

@@ -47,11 +47,7 @@ extract-cd/casper/filesystem.squashfs: extract-cd/casper/filesystem.manifest
 	- rm extract-cd/casper/filesystem.squashfs
 	mksquashfs edit extract-cd/casper/filesystem.squashfs -b 1048576 -comp xz -always-use-fragments
 
-extract-cd/casper/filesystem.squashfs.gpg: extract-cd/casper/filesystem.squashfs
-	@echo "Dropping to a shell. Please sign 'extract-cd/casper/filesystem.squashfs' by typing 'HOME=\"HOMEDIR-WITH-GPGKEY\" gpg --armor --output extract-cd/casper/filesystem.squashfs.gpg --detach-sig extract-cd/casper/filesystem.squashfs' and pressing ENTER. You can also use it for inspecting the ISO build files before the ISO is actually built. Once done, type 'exit' and press ENTER."
-	- sh
-
-extract-cd/casper/filesystem.size: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.squashfs.gpg
+extract-cd/casper/filesystem.size: extract-cd/casper/filesystem.squashfs
 	printf $$(sudo du -sx --block-size=1 edit | cut -f1) > extract-cd/casper/filesystem.size
 
 extract-cd/README.diskdefines:
