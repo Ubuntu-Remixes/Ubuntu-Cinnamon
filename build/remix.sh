@@ -17,3 +17,5 @@ cat > /usr/share/glib-2.0/schemas/90_ubuntucinnamon-wallpaper.gschema.override <
 [org.gnome.desktop.background]
 picture-uri='file:///usr/share/backgrounds/ubuntucinnamon/Ubuntu_Cinnamon_Ubuntu.jpg'
 EOF
+
+glib-compile-schemas /usr/share/glib-2.0/schemas/
