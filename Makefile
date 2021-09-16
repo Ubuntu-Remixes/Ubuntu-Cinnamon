@@ -70,10 +70,14 @@ extract-cd/boot/grub.cfg: .edit.timestamp .enter.timestamp
 extract-cd/md5sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
 	cd extract-cd; rm md5sum.txt; find -type f -print0 | sudo xargs -0 md5sum | /usr/bin/env grep -v 'md5sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > md5sum.txt
 
-build.iso: extract-cd/.disk/info extract-cd/boot/grub.cfg extract-cd/README.diskdefines extract-cd/md5sum.txt
+extract-cd/sha256sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
+	cd extract-cd; find -type f -print0 | sudo xargs -0 sha256sum | /usr/bin/env grep -v 'sha256sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > sha256sum.txt
+
+build.iso: extract-cd/.disk/info extract-cd/boot/grub.cfg extract-cd/README.diskdefines extract-cd/md5sum.txt extract-cd/sha256sum.txt
 	cp grub.cfg extract-cd/boot/grub/grub.cfg
 	source build.conf && rm -f "$$OUT_ISO" && grub-mkrescue -o "$$OUT_ISO" extract-cd/
 	source build.conf && rm -f "$$OUT_ISO.md5sum" && md5sum "$$OUT_ISO" > "$$OUT_ISO.md5sum"
+	source build.conf && rm -f "$$OUT_ISO.sha256sum" && sha256sum "$$OUT_ISO" > "$$OUT_ISO.sha256sum"
 
 iso: build.iso
 
@@ -81,4 +85,4 @@ clean:
 	@rm -rf edit extract-cd mnt squashfs-root .edit.timestamp .enter.timestamp
 
 clean-iso: clean
-	source build.conf && rm -f "$$OUT_ISO" "$$OUT_ISO.md5sum"
+	source build.conf && rm -f "$$OUT_ISO" "$$OUT_ISO.md5sum" "$$OUT_ISO.sha256sum"

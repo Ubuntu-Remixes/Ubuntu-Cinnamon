@@ -6,3 +6,4 @@ squashfs-root/
 .enter.timestamp
 *.iso
 *.md5sum
+*.sha256sum
