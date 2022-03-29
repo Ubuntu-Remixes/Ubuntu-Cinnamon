@@ -54,8 +54,8 @@ extract-cd/README.diskdefines:
 	source build.conf && echo '#define DISKNAME  '"$$DISKNAME" > extract-cd/README.diskdefines
 	echo '#define TYPE  binary' >> extract-cd/README.diskdefines
 	echo '#define TYPEbinary  1' >> extract-cd/README.diskdefines
-	echo '#define ARCH  amd64' >> extract-cd/README.diskdefines
-	echo '#define ARCHamd64  1' >> extract-cd/README.diskdefines
+	echo '#define ARCH  arm64' >> extract-cd/README.diskdefines
+	echo '#define ARCHarm64  1' >> extract-cd/README.diskdefines
 	echo '#define DISKNUM  1' >> extract-cd/README.diskdefines
 	echo '#define DISKNUM1  1' >> extract-cd/README.diskdefines
 	echo '#define TOTALNUM  0' >> extract-cd/README.diskdefines
