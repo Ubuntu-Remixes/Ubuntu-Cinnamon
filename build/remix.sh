@@ -11,7 +11,7 @@ apt-get install -y casper expect gparted ubuntucinnamon-desktop \
  dmraid wamerican fwupdate mokutil ubuntu-settings \
  zram-tools ubiquity ubiquity-slideshow-ubuntu ubiquity-frontend-gtk
 
-apt-get install -y gnome-shell --no-install-recommends && apt-get purge -y gnome-session ubuntu-session gdm3 unity-greeter metacity
+apt-get install -y gnome-shell --no-install-recommends && apt-get purge -y gnome-session ubuntu-session unity-greeter
 
 cat > /usr/share/glib-2.0/schemas/90_ubuntucinnamon-wallpaper.gschema.override <<EOF
 [org.gnome.desktop.background]
