@@ -20,6 +20,8 @@ EOF
 
 apt-get install -y gdm3 metacity xfce4
 
+apt-get install -y plymouth-theme-ubuntucinnamon-spinner
+
 glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 apt-get purge -y budgie-core --auto-remove
