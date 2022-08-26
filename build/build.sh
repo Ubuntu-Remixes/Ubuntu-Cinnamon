@@ -37,7 +37,9 @@ bash remix.sh && apt-get autoremove -y --purge
 
 # Clean up
 update-initramfs -k all -u
-apt-get clean
+apt-get clean -y
+apt-get autoclean -y
+apt-get autoremove -y --purge gnome-shell
 rm -f /var/lib/apt/lists/*_Packages
 rm -f /var/lib/apt/lists/*_Sources
 rm -f /var/lib/apt/lists/*_Translation-*

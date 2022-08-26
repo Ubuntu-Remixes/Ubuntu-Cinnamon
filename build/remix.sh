@@ -18,7 +18,7 @@ cat > /usr/share/glib-2.0/schemas/90_ubuntucinnamon-wallpaper.gschema.override <
 picture-uri='file:///usr/share/backgrounds/ubuntucinnamon/jammy/ubuntu_cinnamon_jammy_jellyfish.jpg'
 EOF
 
-apt-get install -y gdm3 metacity xfce4
+apt-get install -y gdm3 metacity xfwm4
 
 apt-get install -y plymouth-theme-ubuntucinnamon-spinner
 
