@@ -3,8 +3,6 @@
 add-apt-repository -y --no-update universe
 add-apt-repository -y multiverse
 
-add-apt-repository -y ppa:ubuntucinnamonremix/all
-
 apt-get install -y casper expect gparted ubuntucinnamon-desktop \
  cifs-utils language-pack-en language-pack-gnome-en \
  xfsprogs jfsutils reiserfsprogs shim-signed shim ntfs-3g lvm2 \
@@ -17,8 +15,6 @@ cat > /usr/share/glib-2.0/schemas/90_ubuntucinnamon-wallpaper.gschema.override <
 [org.gnome.desktop.background]
 picture-uri='file:///usr/share/backgrounds/ubuntucinnamon/jammy/ubuntu_cinnamon_jammy_jellyfish.jpg'
 EOF
-
-apt-get install -y gdm3 metacity xfce4
 
 apt-get install -y plymouth-theme-ubuntucinnamon-spinner
 
